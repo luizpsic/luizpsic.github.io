@@ -2,8 +2,8 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luiz Henrique | Psicologia Clínica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luiz Henrique | Psicologia Clínica Premium</title>
     
     <meta name="description" content="Psicólogo Luiz Henrique em Mossoró, RN. Terapia online e presencial para ansiedade, depressão, relacionamentos e autoconhecimento. Agende sua avaliação.">
     <meta name="keywords" content="psicólogo, psicologia, terapia, Mossoró, RN, online, presencial, ansiedade, depressão, Luiz Henrique">
@@ -12,13 +12,13 @@
     <!-- Open Graph (Compartilhamento) -->
     <meta property="og:title" content="Luiz Henrique - Psicólogo em Mossoró, RN">
     <meta property="og:description" content="Um espaço de acolhimento para sua jornada de bem-estar e autoconhecimento. Terapia online e presencial.">
-    <meta property="og:image" content="imagens/sobre.jpg">
+    <meta property="og:image" content="img/sobre.jpg">
     <meta property="og:url" content="https://www.luizpsic.com.br">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="imagens/icon.svg">
+    <link rel="icon" type="image/png" href="img/icon.svg">
 
     <!-- Fonts: Cormorant Garamond & Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,13 +101,23 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Botão Luxo */
+        /* Botão Luxo Responsivo */
         .btn-luxury {
             position: relative; display: inline-flex; align-items: center; justify-content: center;
-            padding: 1.2rem 3rem; color: #F2F5F8; font-family: 'Manrope', sans-serif;
-            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 1rem 1.5rem; /* Menor em mobile */
+            color: #F2F5F8; font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
             border: 1px solid rgba(139, 154, 174, 0.4); background: transparent; overflow: hidden;
             transition: all 0.4s ease; text-align: center; cursor: pointer;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .btn-luxury {
+                padding: 1.2rem 3rem; /* Tamanho original em desktop */
+                font-size: 0.75rem;
+                letter-spacing: 0.2em;
+                width: auto;
+            }
         }
         .btn-luxury::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -152,6 +162,11 @@
         .premium-card:hover::after {
             left: 200%; /* Faz a luz cruzar o card */
         }
+        
+        /* Modais - Barra de Rolagem Interna Oculta para Mobile */
+        .modal-content-scroll::-webkit-scrollbar { display: none; }
+        .modal-content-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
         /* Classes dinâmicas para o Auto-Highlight dos Números e Ícones */
         .highlight-active .item-number,
         .highlight-active .item-icon {
@@ -187,14 +202,13 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-brand-border opacity-30 blur-[150px] animate-pulse-slow delay-700"></div>
     </div>
 
-    <!-- NAVBAR INTELIGENTE (Sticky, esconde no topo e ao descer, aparece ao subir) -->
+    <!-- NAVBAR INTELIGENTE -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-[70] bg-[#0B1524]/95 backdrop-blur-md border-b border-[#16253B] transition-transform duration-500 -translate-y-full">
-        <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-6 py-4 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 md:px-6 lg:px-12 py-4">
             
             <!-- Logo / Nome -->
-            <a href="#inicio" class="font-serif text-2xl text-brand-text flex items-center gap-3 group">
-                <i class="fa-solid fa-gem text-brand-accent text-xs group-hover:rotate-180 transition-transform duration-700"></i>
-                Luiz Henrique
+            <a href="#inicio" class="flex items-center group">
+                <img src="img/logo.svg" alt="Logo Luiz Henrique" class="h-8 md:h-10 object-contain transition-transform duration-700 group-hover:scale-105">
             </a>
 
             <!-- Menu Desktop -->
@@ -213,22 +227,22 @@
             </a>
 
             <!-- Menu Hambúrguer (Mobile) -->
-            <button id="mobile-menu-btn" class="lg:hidden text-brand-text text-2xl focus:outline-none hover:text-brand-accent transition-colors">
+            <button id="mobile-menu-btn" class="lg:hidden text-brand-text text-xl focus:outline-none hover:text-brand-accent transition-colors p-2">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Dropdown Mobile -->
         <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-[#0B1524] border-b border-[#16253B] max-h-0 overflow-hidden transition-all duration-500 ease-in-out shadow-[0_20px_40px_rgba(0,0,0,0.8)]">
-            <ul class="flex flex-col items-center py-8 gap-6 text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
+            <ul class="flex flex-col items-center py-6 gap-5 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
                 <li><a href="#atuacao" class="mobile-link hover:text-brand-accent transition-colors">Onde Atuamos</a></li>
                 <li><a href="#sobre" class="mobile-link hover:text-brand-accent transition-colors">O Especialista</a></li>
                 <li><a href="#metodo" class="mobile-link hover:text-brand-accent transition-colors">Os 4 Pilares</a></li>
                 <li><a href="#espaco" class="mobile-link hover:text-brand-accent transition-colors">Espaço Físico</a></li>
                 <li><a href="#corporativo" class="mobile-link hover:text-brand-accent transition-colors">Corporativo e Jurídico</a></li>
                 <li><a href="#faq" class="mobile-link hover:text-brand-accent transition-colors">FAQ</a></li>
-                <li class="mt-4">
-                    <a href="#contato" class="mobile-link border border-brand-accent text-brand-accent px-8 py-3 hover:bg-brand-accent hover:text-[#050B14] transition-colors">
+                <li class="mt-2 w-full px-6">
+                    <a href="#contato" class="mobile-link block text-center border border-brand-accent text-brand-accent px-4 py-3 hover:bg-brand-accent hover:text-[#050B14] transition-colors">
                         Agendar Sessão
                     </a>
                 </li>
@@ -237,144 +251,146 @@
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <header id="inicio" class="relative min-h-[100svh] py-32 flex flex-col items-center justify-center overflow-hidden perspective-1000">
+    <header id="inicio" class="relative min-h-[100svh] py-24 md:py-32 flex flex-col items-center justify-center overflow-hidden perspective-1000">
         <div class="absolute inset-0 z-0 overflow-hidden bg-brand-base">
-            <!-- FOTO DE INÍCIO COM ZOOM AUMENTADO E BRILHO AJUSTADO (object-top adicionado) -->
-            <img id="hero-img" src="https://i.imgur.com/aWVYIxH.jpeg" 
+            <!-- FOTO DE INÍCIO COM ZOOM AUMENTADO E BRILHO AJUSTADO (object-top) -->
+            <img id="hero-img" src="img/inicio.jpg" 
                  alt="Luiz Henrique - Imagem de Fundo" 
                  class="w-full h-full object-cover object-top opacity-60 image-bw animate-zoom transition-transform duration-100 ease-out mix-blend-luminosity">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 w-full max-w-5xl flex flex-col items-center mt-10">
-            <div class="reveal-scale mb-4 flex items-center gap-4">
-                <div class="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-brand-accent"></div>
-                <span class="text-[8px] md:text-[10px] text-brand-accent uppercase tracking-[0.5em] font-bold">Psicologia Clínica</span>
-                <div class="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-brand-accent"></div>
+        <div class="relative z-10 text-center px-4 w-full max-w-5xl flex flex-col items-center mt-12 md:mt-10">
+            <div class="reveal-scale mb-4 flex items-center gap-2 md:gap-4">
+                <div class="h-px w-6 md:w-16 bg-gradient-to-r from-transparent to-brand-accent"></div>
+                <span class="text-[8px] md:text-[10px] text-brand-accent uppercase tracking-[0.4em] md:tracking-[0.5em] font-bold">Psicologia Clínica</span>
+                <div class="h-px w-6 md:w-16 bg-gradient-to-l from-transparent to-brand-accent"></div>
             </div>
 
-            <!-- Fonte ajustada para text-5xl em mobile para evitar quebra de tela -->
-            <h1 class="reveal-scale delay-100 font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] text-brand-text leading-[1.05] tracking-tight mb-4 drop-shadow-2xl text-shimmer animate-shimmer w-full break-words">
+            <!-- Fonte hiper-responsiva -->
+            <h1 class="reveal-scale delay-100 font-serif text-4xl min-[375px]:text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] text-brand-text leading-[1.05] tracking-tight mb-4 md:mb-6 drop-shadow-2xl text-shimmer animate-shimmer w-full break-words px-2">
                 Luiz Henrique
             </h1>
             
             <!-- Textos Empilhados -->
-            <div class="reveal-scale delay-100 mb-6 flex flex-col items-center gap-2">
-                <span class="font-sans text-[10px] md:text-xs text-brand-muted tracking-[0.4em] uppercase font-bold">Psicólogo</span>
-                <span class="font-sans text-[8px] md:text-[9px] text-brand-muted opacity-80 tracking-[0.3em] uppercase font-bold">CRP XX/XXXXX</span>
+            <div class="reveal-scale delay-100 mb-6 flex flex-col items-center gap-1 md:gap-2">
+                <span class="font-sans text-[9px] md:text-xs text-brand-muted tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold">Psicólogo</span>
+                <span class="font-sans text-[7px] md:text-[9px] text-brand-muted opacity-80 tracking-[0.2em] md:tracking-[0.3em] uppercase font-bold">CRP XX/XXXXX</span>
             </div>
 
-            <div class="reveal-up delay-200 flex flex-col items-center w-full">
-                <p class="text-sm md:text-base text-brand-muted max-w-2xl mx-auto mb-8 font-light leading-relaxed px-4">
+            <div class="reveal-up delay-200 flex flex-col items-center w-full px-2">
+                <p class="text-xs sm:text-sm md:text-base text-brand-muted max-w-2xl mx-auto mb-8 font-light leading-relaxed">
                     A mente sobrecarregada não precisa ser um peso constante. Um espaço
                     seguro de acolhimento e reestruturação emocional para você reencontrar
                     o equilíbrio e viver com mais leveza.
                 </p>
-                <button class="btn-luxury shadow-glow hover:shadow-none transition-shadow w-full sm:w-auto text-[10px]">
-                    Iniciar Transformação
-                </button>
+                <div class="w-full sm:w-auto px-4 sm:px-0">
+                    <button class="btn-luxury shadow-glow hover:shadow-none transition-shadow w-full">
+                        Iniciar Transformação
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- FAIXA ANIMADA (MARQUEE) -->
-    <div class="bg-brand-surface py-4 overflow-hidden border-y border-brand-border relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-        <div class="flex animate-marquee w-max opacity-50 hover:opacity-100 transition-opacity duration-700">
+    <div class="bg-brand-surface py-3 md:py-4 overflow-hidden border-y border-brand-border relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div class="flex animate-marquee w-max opacity-60 hover:opacity-100 transition-opacity duration-700">
             <!-- Bloco 1 -->
-            <div class="flex items-center text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-hand-holding-heart mr-2 text-brand-accent"></i> Acolhimento</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-lock mr-2 text-brand-accent"></i> Sigilo Absoluto</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-bullseye mr-2 text-brand-accent"></i> Foco na Demanda</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-users-rays mr-2 text-brand-accent"></i> Empatia</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-chess-knight mr-2 text-brand-accent"></i> Estratégia Terapêutica</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-shield-halved mr-2 text-brand-accent"></i> Espaço Seguro</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-compass mr-2 text-brand-accent"></i> Autoconhecimento</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-brain mr-2 text-brand-accent"></i> Clareza Mental</span> <span class="text-brand-accent/50">•</span>
+            <div class="flex items-center text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-hand-holding-heart mr-2 text-brand-accent"></i> Acolhimento</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-lock mr-2 text-brand-accent"></i> Sigilo Absoluto</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-bullseye mr-2 text-brand-accent"></i> Foco na Demanda</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-users-rays mr-2 text-brand-accent"></i> Empatia</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-chess-knight mr-2 text-brand-accent"></i> Estratégia Terapêutica</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-shield-halved mr-2 text-brand-accent"></i> Espaço Seguro</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-compass mr-2 text-brand-accent"></i> Autoconhecimento</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-brain mr-2 text-brand-accent"></i> Clareza Mental</span> <span class="text-brand-accent/50">•</span>
             </div>
             <!-- Bloco 2 (Clone para loop infinito) -->
-            <div class="flex items-center text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-hand-holding-heart mr-2 text-brand-accent"></i> Acolhimento</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-lock mr-2 text-brand-accent"></i> Sigilo Absoluto</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-bullseye mr-2 text-brand-accent"></i> Foco na Demanda</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-users-rays mr-2 text-brand-accent"></i> Empatia</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-chess-knight mr-2 text-brand-accent"></i> Estratégia Terapêutica</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-shield-halved mr-2 text-brand-accent"></i> Espaço Seguro</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-compass mr-2 text-brand-accent"></i> Autoconhecimento</span> <span class="text-brand-accent/50">•</span>
-                <span class="mx-6 md:mx-10"><i class="fa-solid fa-brain mr-2 text-brand-accent"></i> Clareza Mental</span> <span class="text-brand-accent/50">•</span>
+            <div class="flex items-center text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-muted">
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-hand-holding-heart mr-2 text-brand-accent"></i> Acolhimento</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-lock mr-2 text-brand-accent"></i> Sigilo Absoluto</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-bullseye mr-2 text-brand-accent"></i> Foco na Demanda</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-users-rays mr-2 text-brand-accent"></i> Empatia</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-chess-knight mr-2 text-brand-accent"></i> Estratégia Terapêutica</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-shield-halved mr-2 text-brand-accent"></i> Espaço Seguro</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-compass mr-2 text-brand-accent"></i> Autoconhecimento</span> <span class="text-brand-accent/50">•</span>
+                <span class="mx-4 md:mx-10"><i class="fa-solid fa-brain mr-2 text-brand-accent"></i> Clareza Mental</span> <span class="text-brand-accent/50">•</span>
             </div>
         </div>
     </div>
 
     <!-- 2. ONDE ATUAMOS (Áreas de Atuação) -->
-    <section id="atuacao" class="py-24 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="atuacao" class="py-20 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
             <!-- Cabeçalho da Secção -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 reveal-up">
-                <div class="mb-6 md:mb-0">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 reveal-up">
+                <div class="mb-4 md:mb-0">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="h-px w-8 bg-brand-accent"></div>
-                        <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Apoio Direto</span>
+                        <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">Apoio Direto</span>
                     </div>
                     <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text leading-tight">Onde atuamos juntos.</h2>
                 </div>
-                <p class="text-brand-muted max-w-sm text-sm md:text-base font-light leading-relaxed md:text-left">
+                <p class="text-brand-muted max-w-sm text-sm md:text-base font-light leading-relaxed md:text-left mt-4 md:mt-0">
                     Encontre um caminho para o bem-estar e o autoconhecimento. Estou aqui para apoiar a sua jornada com acolhimento e escuta ativa.
                 </p>
             </div>
 
-            <!-- Grid de Cards (Design Fundo Azul) -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Grid de Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 
                 <!-- Card 1: Ansiedade -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up premium-card">
-                    <i class="fa-solid fa-bolt text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Ansiedade</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up premium-card">
+                    <i class="fa-solid fa-bolt text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Ansiedade</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Aprenda a gerenciar preocupações, medos e crises para viver com mais calma, presença e serenidade mental.
                     </p>
                 </div>
 
                 <!-- Card 2: Relacionamentos -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-100 premium-card">
-                    <i class="fa-solid fa-heart-crack text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Relacionamentos</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up delay-100 premium-card">
+                    <i class="fa-solid fa-heart-crack text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Relacionamentos</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Desenvolva vínculos mais saudáveis e comunicação assertiva, seja em relações amorosas, familiares ou de amizade.
                     </p>
                 </div>
 
                 <!-- Card 3: Depressão -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-200 premium-card">
-                    <i class="fa-solid fa-cloud-rain text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Depressão</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up delay-200 premium-card">
+                    <i class="fa-solid fa-cloud-rain text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Depressão</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Encontre apoio estruturado para acolher a tristeza profunda e trabalhar gradualmente no resgate da alegria de viver.
                     </p>
                 </div>
 
                 <!-- Card 4: Autoestima -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up premium-card">
-                    <i class="fa-solid fa-user-shield text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Autoestima</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up premium-card">
+                    <i class="fa-solid fa-user-shield text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Autoestima</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Fortaleça sua autoimagem e confiança para se relacionar melhor consigo mesmo e abraçar seu real valor.
                     </p>
                 </div>
 
                 <!-- Card 5: Estresse & Burnout -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-100 premium-card">
-                    <i class="fa-solid fa-brain text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Estresse & Burnout</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up delay-100 premium-card">
+                    <i class="fa-solid fa-brain text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Estresse & Burnout</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Descubra e implemente formas mais saudáveis de lidar com o peso do dia a dia e evitar o esgotamento total.
                     </p>
                 </div>
 
                 <!-- Card 6: Autoconhecimento -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-200 premium-card">
-                    <i class="fa-solid fa-compass text-3xl md:text-4xl text-brand-accent mb-6 opacity-80"></i>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Autoconhecimento</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light">
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 sm:p-8 md:p-10 reveal-up delay-200 premium-card">
+                    <i class="fa-solid fa-compass text-2xl md:text-4xl text-brand-accent mb-4 md:mb-6 opacity-80"></i>
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Autoconhecimento</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light">
                         Explore quem você é de verdade, entenda seus padrões de comportamento e descubra seu potencial autêntico.
                     </p>
                 </div>
@@ -384,58 +400,57 @@
     </section>
 
     <!-- 3. O CUSTO DA NEGLIGÊNCIA -->
-    <section id="consequencias" class="py-24 md:py-32 bg-brand-base relative z-10 border-b border-brand-border overflow-hidden">
-        <!-- Glow de fundo subtil para dar profundidade -->
+    <section id="consequencias" class="py-20 md:py-32 bg-brand-base relative z-10 border-b border-brand-border overflow-hidden">
+        <!-- Glow de fundo subtil -->
         <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[50vw] h-[50vw] rounded-full bg-brand-accent opacity-[0.02] blur-[150px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
             
-            <!-- Coluna da Esquerda (Textos e Tópicos Editoriais) -->
+            <!-- Coluna da Esquerda -->
             <div class="lg:col-span-6 reveal-left">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-px w-8 bg-brand-accent"></div>
-                    <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">A Realidade</span>
+                <div class="flex items-center gap-4 mb-4 md:mb-6">
+                    <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">A Realidade</span>
                 </div>
                 
-                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-8 leading-tight">
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-6 md:mb-8 leading-tight">
                     A negligência emocional <br>
                     <span class="italic text-brand-accent">cobra a sua dívida.</span>
                 </h2>
                 
-                <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light mb-12">
+                <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light mb-10 md:mb-12">
                     Ignorar os sinais da mente tem um impacto profundo no corpo e na alma. Continuar a empurrar a exaustão com a barriga não é sinônimo de resiliência, é adiar a própria vida.
                 </p>
                 
-                <!-- Nova Lista: Numeração Editorial com Auto-Highlight -->
-                <div class="space-y-10 highlight-container" id="highlight-container">
-                    <div class="flex gap-6 items-start group reveal-up highlight-item highlight-active cursor-default transition-all duration-500">
-                        <span class="font-serif text-4xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">01</span>
-                        <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
+                <!-- Nova Lista -->
+                <div class="space-y-8 md:space-y-10 highlight-container" id="highlight-container">
+                    <div class="flex gap-4 md:gap-6 items-start group reveal-up highlight-item highlight-active cursor-default transition-all duration-500">
+                        <span class="font-serif text-3xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">01</span>
+                        <p class="text-xs md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
                             Exaustão física e mental severa (Burnout), impactando os seus projetos e o seu bem-estar diário.
                         </p>
                     </div>
                     
-                    <div class="flex gap-6 items-start group reveal-up delay-100 highlight-item cursor-default transition-all duration-500">
-                        <span class="font-serif text-4xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">02</span>
-                        <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
+                    <div class="flex gap-4 md:gap-6 items-start group reveal-up delay-100 highlight-item cursor-default transition-all duration-500">
+                        <span class="font-serif text-3xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">02</span>
+                        <p class="text-xs md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
                             Isolamento crônico e desgaste irreversível em laços familiares e amizades valiosas.
                         </p>
                     </div>
                     
-                    <div class="flex gap-6 items-start group reveal-up delay-200 highlight-item cursor-default transition-all duration-500">
-                        <span class="font-serif text-4xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">03</span>
-                        <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
+                    <div class="flex gap-4 md:gap-6 items-start group reveal-up delay-200 highlight-item cursor-default transition-all duration-500">
+                        <span class="font-serif text-3xl md:text-5xl text-brand-border italic group-hover:text-brand-accent transition-colors duration-500 leading-none item-number">03</span>
+                        <p class="text-xs md:text-base text-brand-muted leading-relaxed font-light group-hover:text-brand-text transition-colors duration-500 mt-1 item-text">
                             Decisões drásticas tomadas sob o efeito de ansiedade, impulsividade e névoa mental.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Coluna da Direita (Citação Embutida - Versão Intermédia) -->
-            <div class="lg:col-span-6 reveal-right delay-200 h-full relative">
-                <!-- Cartão com paddings e fontes responsivas para mobile -->
-                <div class="relative p-6 sm:p-10 md:p-14 flex flex-col justify-center h-full premium-card bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm">
-                    <i class="fa-solid fa-quote-left text-4xl md:text-5xl text-brand-accent mb-6 md:mb-8 opacity-20"></i>
+            <!-- Coluna da Direita (Citação) -->
+            <div class="lg:col-span-6 reveal-right delay-200 h-full relative mt-8 lg:mt-0">
+                <div class="relative p-8 sm:p-10 md:p-14 flex flex-col justify-center h-full premium-card bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm">
+                    <i class="fa-solid fa-quote-left text-3xl md:text-5xl text-brand-accent mb-6 md:mb-8 opacity-20"></i>
                     
                     <p class="font-serif text-xl sm:text-2xl md:text-4xl text-brand-text leading-snug italic mb-8 md:mb-10">
                         "Não espere que tudo pareça desmoronar para só então procurar a ajuda que o poderia ter fortalecido desde o início."
@@ -452,49 +467,47 @@
     </section>
 
     <!-- 4. O ESPECIALISTA (O Melhor dos Dois Mundos) -->
-    <section id="sobre" class="py-24 md:py-32 bg-brand-surface relative z-10 border-b border-brand-border overflow-hidden">
+    <section id="sobre" class="py-20 md:py-32 bg-brand-surface relative z-10 border-b border-brand-border overflow-hidden">
         <!-- Decorador de Fundo -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-base opacity-40 skew-x-12 translate-x-1/4 pointer-events-none hidden md:block"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             
-            <!-- LABEL NO CANTO SUPERIOR ESQUERDO DE TODA A SESSÃO -->
-            <div class="absolute top-0 left-6 md:left-6 flex items-center justify-start gap-4 reveal-left">
-                <div class="h-px w-8 md:w-12 bg-brand-accent"></div>
-                <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Especialista</span>
+            <!-- LABEL NO CANTO SUPERIOR ESQUERDO -->
+            <div class="absolute top-0 left-4 md:left-6 flex items-center justify-start gap-4 reveal-left">
+                <div class="h-px w-6 md:w-12 bg-brand-accent"></div>
+                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Especialista</span>
             </div>
 
-            <!-- Adicionado pt-12 (padding-top) para o conteúdo ficar abaixo da etiqueta superior -->
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start pt-12 md:pt-16">
+            <!-- Ajustado para padding mobile vs desktop -->
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-20 items-start pt-12 md:pt-16">
                 
-                <!-- Coluna da Esquerda (Imagem Aumentada com Overlay tipo "Quadro") -->
-                <div class="lg:col-span-5 relative reveal-left w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0 pb-12 md:pb-8">
+                <!-- Coluna da Esquerda (Imagem) -->
+                <div class="lg:col-span-5 relative reveal-left w-full max-w-xs sm:max-w-md lg:max-w-lg mx-auto lg:mx-0 pb-10 md:pb-8">
                     
-                    <!-- Wrapper da imagem com efeito Premium -->
                     <div class="relative p-2 md:p-3 border border-[#16253B] bg-[#0B1524] premium-card">
-                        <!-- Imagem Colorida -->
-                        <img src="https://i.imgur.com/m0ghxux.jpeg" 
+                        <img src="img/sobre.jpg" 
                              alt="Foto do psicólogo Luiz Henrique" 
                              loading="lazy"
                              class="w-full h-auto aspect-[4/5] object-cover">
                     </div>
                              
-                    <!-- Placa de Identificação responsiva -->
-                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:-right-6 md:translate-x-0 bg-[#0B1524] border border-[#16253B] px-6 py-4 md:px-8 md:py-5 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)] text-center w-[90%] sm:w-[85%] md:w-auto z-20 hover:border-brand-accent transition-colors duration-500">
-                        <p class="font-serif text-xl md:text-2xl text-brand-text">Luiz Henrique</p>
-                        <p class="text-[7px] md:text-[9px] uppercase tracking-[0.3em] text-brand-accent mt-1 md:mt-2 font-bold">Psicólogo Clínico</p>
+                    <!-- Placa responsiva -->
+                    <div class="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:-right-6 md:translate-x-0 bg-[#0B1524] border border-[#16253B] px-5 py-3 md:px-8 md:py-5 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)] text-center w-[85%] md:w-auto z-20 hover:border-brand-accent transition-colors duration-500">
+                        <p class="font-serif text-lg sm:text-xl md:text-2xl text-brand-text">Luiz Henrique</p>
+                        <p class="text-[6px] sm:text-[7px] md:text-[9px] uppercase tracking-[0.3em] text-brand-accent mt-1 md:mt-2 font-bold">Psicólogo Clínico</p>
                     </div>
                 </div>
 
-                <!-- Coluna da Direita (Textos Melhorados e Stats) -->
-                <div class="lg:col-span-7 reveal-right delay-200 mt-8 md:mt-12 lg:mt-0 text-left">
+                <!-- Coluna da Direita (Textos Melhorados) -->
+                <div class="lg:col-span-7 reveal-right delay-200 mt-6 md:mt-12 lg:mt-0 text-left">
                     
                     <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-6 md:mb-8 leading-tight">
                         Mais do que escuta.<br>
                         <span class="italic text-brand-accent">Um Direcionamento.</span>
                     </h2>
                     
-                    <div class="space-y-4 md:space-y-6 text-sm md:text-base text-brand-muted leading-relaxed font-light mb-10 md:mb-12 pr-0 lg:pr-10">
+                    <div class="space-y-4 md:space-y-6 text-sm md:text-base text-brand-muted leading-relaxed font-light mb-8 md:mb-12 pr-0 lg:pr-10">
                         <p>
                             Com sólida experiência clínica, sou Luiz Henrique (CRP XX/XXXXX), psicólogo dedicado a reestruturar mentes sobrecarregadas e curar feridas emocionais silenciosas. Ao longo da minha trajetória, desenvolvi uma prática terapêutica que une o absoluto rigor da ciência psicológica a um acolhimento humano profundo e sem julgamentos.
                         </p>
@@ -503,19 +516,17 @@
                         </p>
                     </div>
 
-                    <!-- Estatísticas / Destaques e CTA empilhados perfeitamente no Mobile e lado a lado no PC -->
-                    <div class="flex flex-col sm:grid sm:grid-cols-2 gap-8 border-y border-[#16253B] py-8 items-start sm:items-center">
-                        <!-- Call to Action -->
-                        <div class="order-2 sm:order-1">
-                            <a href="#contato" class="group flex items-center gap-4 text-xs md:text-sm uppercase tracking-[0.2em] font-bold text-brand-text w-fit">
-                                <span class="border-b-2 border-brand-accent/50 pb-1 group-hover:text-brand-accent group-hover:border-brand-accent transition-colors">Vamos Conversar?</span>
-                                <i class="fa-solid fa-arrow-right-long text-brand-accent text-lg transform group-hover:translate-x-2 transition-transform"></i>
+                    <!-- Estatísticas e CTA -->
+                    <div class="flex flex-col sm:grid sm:grid-cols-2 gap-6 md:gap-8 border-y border-[#16253B] py-6 md:py-8 items-start sm:items-center">
+                        <div class="order-2 sm:order-1 w-full sm:w-auto">
+                            <a href="#contato" class="group flex items-center justify-center sm:justify-start gap-4 text-xs md:text-sm uppercase tracking-[0.2em] font-bold text-brand-text w-full sm:w-fit py-3 sm:py-0 border border-[#16253B] sm:border-none rounded-sm sm:rounded-none">
+                                <span class="sm:border-b-2 sm:border-brand-accent/50 sm:pb-1 group-hover:text-brand-accent group-hover:border-brand-accent transition-colors">Vamos Conversar?</span>
+                                <i class="fa-solid fa-arrow-right-long text-brand-accent text-sm md:text-lg transform group-hover:translate-x-2 transition-transform hidden sm:inline-block"></i>
                             </a>
                         </div>
-                        <!-- Bloco Online & Presencial -->
-                        <div class="order-1 sm:order-2">
-                            <p class="font-serif text-3xl md:text-4xl text-brand-text mb-2">Online & Presencial</p>
-                            <p class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold">Acolhimento Global</p>
+                        <div class="order-1 sm:order-2 text-center sm:text-left w-full sm:w-auto pb-4 sm:pb-0 border-b border-[#16253B]/50 sm:border-none">
+                            <p class="font-serif text-3xl md:text-4xl text-brand-text mb-1 md:mb-2">Online & Presencial</p>
+                            <p class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold">Acolhimento Global</p>
                         </div>
                     </div>
                 </div>
@@ -525,50 +536,49 @@
     </section>
 
     <!-- 5. O MÉTODO (As Engrenagens) -->
-    <section id="metodo" class="py-24 md:py-32 bg-brand-base relative z-10 border-b border-brand-border">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Cabeçalho Alinhado à Esquerda com Traço -->
-            <div class="max-w-3xl mb-16 md:mb-20 reveal-up">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-px w-8 bg-brand-accent"></div>
-                    <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">As Engrenagens</span>
+    <section id="metodo" class="py-20 md:py-32 bg-brand-base relative z-10 border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            
+            <div class="max-w-3xl mb-12 md:mb-20 reveal-up">
+                <div class="flex items-center gap-4 mb-4 md:mb-6">
+                    <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">As Engrenagens</span>
                 </div>
-                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-text mb-6">Os 4 Pilares do Cuidado.</h2>
-                <p class="text-sm text-brand-muted font-light leading-relaxed">
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-text mb-4 md:mb-6">Os 4 Pilares do Cuidado.</h2>
+                <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed">
                     A terapia não precisa ser abstrata. O meu trabalho foca-se no acolhimento aliado à construção prática de hábitos e pensamentos mais saudáveis para a sua vida.
                 </p>
             </div>
 
-            <!-- Grid de Cards com Auto-Highlight -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 highlight-container">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 highlight-container">
                 <!-- Pilar 1 -->
-                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-8 reveal-up premium-card highlight-item highlight-active transition-all duration-500 flex flex-col cursor-default group">
-                    <span class="font-serif text-3xl md:text-4xl text-brand-border italic mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">I.</span>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4">Corpo & Mente</h4>
+                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-6 md:p-8 reveal-up premium-card highlight-item highlight-active transition-all duration-500 flex flex-col cursor-default group">
+                    <span class="font-serif text-2xl md:text-4xl text-brand-border italic mb-4 md:mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">I.</span>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4">Corpo & Mente</h4>
                     <p class="text-xs text-brand-muted leading-relaxed font-light flex-grow item-text transition-colors duration-500 group-hover:text-brand-text">
                         Atenção ao sono, relaxamento físico e técnicas para acalmar o coração quando a ansiedade e o medo aparecerem.
                     </p>
                 </div>
                 <!-- Pilar 2 -->
-                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-8 reveal-up delay-100 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
-                    <span class="font-serif text-3xl md:text-4xl text-brand-border italic mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">II.</span>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4">Pensamentos</h4>
+                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-6 md:p-8 reveal-up delay-100 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
+                    <span class="font-serif text-2xl md:text-4xl text-brand-border italic mb-4 md:mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">II.</span>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4">Pensamentos</h4>
                     <p class="text-xs text-brand-muted leading-relaxed font-light flex-grow item-text transition-colors duration-500 group-hover:text-brand-text">
-                        Identificação de pensamentos autocríticos e crenças que geram insegurança, transformando-os em uma voz mais gentil com você mesmo(a).
+                        Identificação de pensamentos autocríticos e crenças que geram insegurança, transformando-os em uma voz mais gentil com você mesmo.
                     </p>
                 </div>
                 <!-- Pilar 3 -->
-                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-8 reveal-up delay-200 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
-                    <span class="font-serif text-3xl md:text-4xl text-brand-border italic mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">III.</span>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4">Atitudes</h4>
+                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-6 md:p-8 reveal-up delay-200 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
+                    <span class="font-serif text-2xl md:text-4xl text-brand-border italic mb-4 md:mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">III.</span>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4">Atitudes</h4>
                     <p class="text-xs text-brand-muted leading-relaxed font-light flex-grow item-text transition-colors duration-500 group-hover:text-brand-text">
                         Aprender a dizer "não" com amor, estabelecer limites saudáveis nas suas rotinas e resgatar o seu espaço pessoal.
                     </p>
                 </div>
                 <!-- Pilar 4 -->
-                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-8 reveal-up delay-300 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
-                    <span class="font-serif text-3xl md:text-4xl text-brand-border italic mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">IV.</span>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4">Relações</h4>
+                <div class="relative bg-gradient-to-br from-brand-surface/60 to-transparent border border-brand-border/40 backdrop-blur-sm rounded-sm p-6 md:p-8 reveal-up delay-300 premium-card highlight-item transition-all duration-500 flex flex-col cursor-default group">
+                    <span class="font-serif text-2xl md:text-4xl text-brand-border italic mb-4 md:mb-6 block leading-none item-number transition-colors duration-500 group-hover:text-brand-accent">IV.</span>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4">Relações</h4>
                     <p class="text-xs text-brand-muted leading-relaxed font-light flex-grow item-text transition-colors duration-500 group-hover:text-brand-text">
                         Desenvolvimento de uma comunicação clara e empática, melhorando o convívio em casa, no trabalho e nas amizades.
                     </p>
@@ -578,66 +588,64 @@
     </section>
 
     <!-- 6. APOIO IMEDIATO (Sessão Interativa) -->
-    <section id="pausa" class="py-24 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="pausa" class="py-20 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
             
-            <!-- Cabeçalho Alinhado à Esquerda -->
-            <div class="max-w-3xl mb-16 md:mb-20 reveal-up">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-px w-8 bg-brand-accent"></div>
-                    <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Apoio Imediato</span>
+            <div class="max-w-3xl mb-12 md:mb-20 reveal-up">
+                <div class="flex items-center gap-4 mb-4 md:mb-6">
+                    <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">Apoio Imediato</span>
                 </div>
-                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-6">
-                    Experimente uma pausa <span class="italic text-brand-accent">agora.</span>
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-4 md:mb-6">
+                    Experimente uma pausa <br class="hidden sm:block"> <span class="italic text-brand-accent">agora.</span>
                 </h2>
                 <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed">
                     Antes de tomar qualquer decisão, reserve um minuto apenas para si. A cura começa no instante em que você decide pausar.
                 </p>
             </div>
 
-            <!-- Grid de Interação (3 Cards Funcionais) -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 
-                <!-- Card 1: Descompressão (Respiração) -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up premium-card flex flex-col items-center text-center group">
-                    <div class="w-16 h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
-                        <i class="fa-solid fa-wind text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                <!-- Card 1: Descompressão -->
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 md:p-10 reveal-up premium-card flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-6 md:mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
+                        <i class="fa-solid fa-wind text-xl md:text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
                     </div>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Preciso de Terapia?</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light flex-grow mb-8">
-                        Se a ansiedade mente para o seu corpo dizendo que há um perigo iminente, ou se a tristeza pesa demais. Redefina o seu estado interno agora mesmo com este exercício de respiração.
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Preciso de Terapia?</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light flex-grow mb-6 md:mb-8">
+                        Se a ansiedade mente para o seu corpo dizendo que há um perigo iminente, ou se a tristeza pesa demais. Redefina o seu estado interno com este exercício.
                     </p>
-                    <button onclick="openModal('modal-respira')" class="btn-luxury w-full text-[9px] md:text-[10px] mt-auto">
-                        Iniciar Exercício de Respiração
+                    <button onclick="openModal('modal-respira')" class="btn-luxury w-full mt-auto">
+                        Iniciar Respiração
                     </button>
                 </div>
 
-                <!-- Card 2: Passatempo (Desafio Cognitivo) -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-100 premium-card flex flex-col items-center text-center group">
-                    <div class="w-16 h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
-                        <i class="fa-solid fa-gamepad text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                <!-- Card 2: Passatempo -->
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 md:p-10 reveal-up delay-100 premium-card flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-6 md:mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
+                        <i class="fa-solid fa-gamepad text-xl md:text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
                     </div>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Passatempo</h3>
-                    <p class="text-sm text-brand-muted leading-relaxed font-light flex-grow mb-8">
-                        Redirecione o seu foco com um pequeno desafio cognitivo. Uma estratégia simples e eficaz para quebrar ciclos de pensamentos acelerados e aliviar a tensão imediata.
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Passatempo</h3>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light flex-grow mb-6 md:mb-8">
+                        Redirecione o seu foco com um pequeno desafio cognitivo. Uma estratégia simples e eficaz para quebrar ciclos de pensamentos acelerados.
                     </p>
-                    <button onclick="openModal('modal-jogo')" class="btn-luxury w-full text-[9px] md:text-[10px] mt-auto">
+                    <button onclick="openModal('modal-jogo')" class="btn-luxury w-full mt-auto">
                         Jogar Agora
                     </button>
                 </div>
 
-                <!-- Card 3: Reflexões Clínicas Dinâmicas -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-10 reveal-up delay-200 premium-card flex flex-col items-center text-center group md:col-span-2 lg:col-span-1">
-                    <div class="w-16 h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
-                        <i class="fa-solid fa-feather-pointed text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                <!-- Card 3: Reflexões -->
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 md:p-10 reveal-up delay-200 premium-card flex flex-col items-center text-center group sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#16253B] bg-[#050B14] flex items-center justify-center mb-6 md:mb-8 group-hover:border-brand-accent transition-colors duration-500 shadow-glow">
+                        <i class="fa-solid fa-feather-pointed text-xl md:text-2xl text-brand-accent opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
                     </div>
-                    <h3 class="font-serif text-2xl text-brand-text mb-4">Reflexões Clínicas</h3>
-                    <div class="flex-grow flex items-center justify-center mb-8 min-h-[100px] w-full">
-                        <p id="reflexao-texto" class="text-sm md:text-base text-brand-muted leading-relaxed font-serif italic transition-opacity duration-500">
+                    <h3 class="font-serif text-xl md:text-2xl text-brand-text mb-3 md:mb-4">Reflexões Clínicas</h3>
+                    <div class="flex-grow flex items-center justify-center mb-6 md:mb-8 min-h-[80px] w-full">
+                        <p id="reflexao-texto" class="text-xs md:text-base text-brand-muted leading-relaxed font-serif italic transition-opacity duration-500">
                             "Aguardando a reflexão..."
                         </p>
                     </div>
-                    <button onclick="novaReflexao()" class="btn-luxury w-full text-[9px] md:text-[10px] mt-auto">
+                    <button onclick="novaReflexao()" class="btn-luxury w-full mt-auto">
                         Ler Nova Reflexão
                     </button>
                 </div>
@@ -647,20 +655,17 @@
     </section>
 
     <!-- 7. O ESPAÇO FÍSICO (Consultório Presencial) -->
-    <section id="espaco" class="py-24 md:py-32 bg-brand-base relative z-10 border-b border-brand-border overflow-hidden">
-        <!-- Decorador de Fundo -->
+    <section id="espaco" class="py-20 md:py-32 bg-brand-base relative z-10 border-b border-brand-border overflow-hidden">
         <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[60vw] h-[60vw] rounded-full bg-brand-accent opacity-[0.015] blur-[150px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             
-            <!-- Cabeçalho Layout Lado a Lado (Melhor Agrupamento) -->
-            <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-start mb-16 md:mb-20 reveal-up">
+            <div class="grid lg:grid-cols-2 gap-6 md:gap-16 items-start mb-12 md:mb-20 reveal-up">
                 
-                <!-- Lado Esquerdo: Títulos -->
                 <div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="h-px w-8 bg-brand-accent"></div>
-                        <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Espaço Físico</span>
+                    <div class="flex items-center gap-4 mb-4 md:mb-6">
+                        <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Espaço Físico</span>
                     </div>
                     
                     <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text leading-tight">
@@ -669,185 +674,171 @@
                     </h2>
                 </div>
 
-                <!-- Lado Direito: Texto Explicativo e CTA -->
                 <div class="flex flex-col items-start lg:pt-12">
-                    <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed mb-8">
+                    <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed mb-6 md:mb-8">
                         O meu consultório foi pensado em cada detalhe para proporcionar uma experiência de acolhimento ímpar. Um ambiente discreto, com isolamento acústico absoluto e conforto premium, garantindo a tranquilidade e a segurança necessárias para que possamos trabalhar as suas questões mais profundas com total privacidade.
                     </p>
 
-                    <!-- CTA para o Presencial -->
-                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury text-[10px] w-full sm:w-auto">
+                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full sm:w-auto">
                         Agendar Visita Presencial
                     </a>
                 </div>
 
             </div>
 
-            <!-- Galeria de Imagens (Com Ciclo Automático) -->
-            <div class="grid md:grid-cols-12 gap-6 md:gap-8 mb-20">
-                <!-- Imagem Principal (Maior) -->
+            <!-- Galeria de Imagens -->
+            <div class="grid md:grid-cols-12 gap-4 md:gap-8 mb-16 md:mb-20">
                 <div class="md:col-span-7 lg:col-span-8 relative overflow-hidden border border-[#16253B] bg-[#050B14] premium-card reveal-left">
                     <img id="img-espaco-1" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" 
-                         alt="" 
-                         loading="lazy"
-                         class="w-full h-[300px] sm:h-[400px] object-cover transition-all duration-1000 grayscale-[100%] contrast-[1.1] brightness-[0.85]">
-                    
-                    <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-[#0B1524]/90 backdrop-blur-sm border border-[#16253B] px-6 py-3 z-20">
-                        <p class="text-[9px] uppercase tracking-[0.2em] text-brand-text font-bold">Sala de Consulta</p>
+                         alt="" loading="lazy"
+                         class="w-full h-[250px] sm:h-[400px] object-cover transition-all duration-1000 grayscale-[100%] contrast-[1.1] brightness-[0.85]">
+                    <div class="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-[#0B1524]/90 backdrop-blur-sm border border-[#16253B] px-4 py-2 md:px-6 md:py-3 z-20">
+                        <p class="text-[7px] md:text-[9px] uppercase tracking-[0.2em] text-brand-text font-bold">Sala de Consulta</p>
                     </div>
                 </div>
 
-                <!-- Imagem Secundária (Menor/Apoio) -->
                 <div class="md:col-span-5 lg:col-span-4 relative overflow-hidden border border-[#16253B] bg-[#050B14] premium-card reveal-right delay-100">
                     <img id="img-espaco-2" src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" 
-                         alt="" 
-                         loading="lazy"
-                         class="w-full h-[300px] sm:h-[400px] object-cover transition-all duration-1000 grayscale-[100%] contrast-[1.1] brightness-[0.85]">
-                         
-                    <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-[#0B1524]/90 backdrop-blur-sm border border-[#16253B] px-6 py-3 z-20">
-                        <p class="text-[9px] uppercase tracking-[0.2em] text-brand-text font-bold">Acolhimento</p>
+                         alt="" loading="lazy"
+                         class="w-full h-[250px] sm:h-[400px] object-cover transition-all duration-1000 grayscale-[100%] contrast-[1.1] brightness-[0.85]">
+                    <div class="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-[#0B1524]/90 backdrop-blur-sm border border-[#16253B] px-4 py-2 md:px-6 md:py-3 z-20">
+                        <p class="text-[7px] md:text-[9px] uppercase tracking-[0.2em] text-brand-text font-bold">Acolhimento</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 3 Características do Espaço com Auto-Highlight -->
-            <div class="grid sm:grid-cols-3 gap-12 md:gap-16 border-t border-[#16253B] pt-16 reveal-up highlight-container">
-                
-                <!-- Feature 1 -->
+            <!-- Características -->
+            <div class="grid sm:grid-cols-3 gap-10 md:gap-16 border-t border-[#16253B] pt-12 md:pt-16 reveal-up highlight-container">
                 <div class="text-left group highlight-item highlight-active cursor-default transition-all duration-500">
-                    <i class="fa-solid fa-volume-xmark text-3xl text-[#16253B] mb-6 transition-colors duration-500 item-icon"></i>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4 transition-colors duration-500">Isolamento Acústico</h4>
-                    <p class="text-sm md:text-xs lg:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
+                    <i class="fa-solid fa-volume-xmark text-2xl md:text-3xl text-[#16253B] mb-4 md:mb-6 transition-colors duration-500 item-icon"></i>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4 transition-colors duration-500">Isolamento Acústico</h4>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
                         Sigilo absoluto garantido pela estrutura física. O que é dito aqui, fica totalmente protegido aqui.
                     </p>
                 </div>
 
-                <!-- Feature 2 (Reescrita) -->
                 <div class="text-left group delay-100 highlight-item cursor-default transition-all duration-500">
-                    <i class="fa-solid fa-seedling text-3xl text-[#16253B] mb-6 transition-colors duration-500 item-icon"></i>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4 transition-colors duration-500">Ambiente Sereno</h4>
-                    <p class="text-sm md:text-xs lg:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
-                        Cada detalhe foi pensado para reduzir a sobrecarga sensorial, criando uma atmosfera que convida à introspecção e à calma.
+                    <i class="fa-solid fa-seedling text-2xl md:text-3xl text-[#16253B] mb-4 md:mb-6 transition-colors duration-500 item-icon"></i>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4 transition-colors duration-500">Ambiente Sereno</h4>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
+                        Detalhes pensados para reduzir a sobrecarga sensorial, criando uma atmosfera que convida à calma.
                     </p>
                 </div>
 
-                <!-- Feature 3 (Reescrita) -->
                 <div class="text-left group delay-200 highlight-item cursor-default transition-all duration-500">
-                    <i class="fa-solid fa-shield-halved text-3xl text-[#16253B] mb-6 transition-colors duration-500 item-icon"></i>
-                    <h4 class="text-brand-text font-bold text-sm uppercase tracking-widest mb-4 transition-colors duration-500">Total Privacidade</h4>
-                    <p class="text-sm md:text-xs lg:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
-                        Localização estratégica e arquitetura discreta, garantindo que a sua chegada e saída sejam confortáveis e livres de exposição.
+                    <i class="fa-solid fa-shield-halved text-2xl md:text-3xl text-[#16253B] mb-4 md:mb-6 transition-colors duration-500 item-icon"></i>
+                    <h4 class="text-brand-text font-bold text-xs md:text-sm uppercase tracking-widest mb-3 md:mb-4 transition-colors duration-500">Total Privacidade</h4>
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light item-text transition-colors duration-500">
+                        Localização estratégica e arquitetura discreta para uma chegada e saída livres de exposição.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 8. CORPORATIVO E JURÍDICO (Além da Clínica) -->
-    <section id="corporativo" class="py-24 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- 8. CORPORATIVO E JURÍDICO -->
+    <section id="corporativo" class="py-20 md:py-32 bg-[#050B14] relative z-10 border-b border-[#16253B]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
             
-            <!-- Cabeçalho Centralizado para quebrar o padrão e dar ênfase a um novo braço de atuação -->
-            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal-up">
-                <div class="flex items-center justify-center gap-4 mb-6">
-                    <div class="h-px w-8 bg-brand-accent"></div>
-                    <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Além da Clínica</span>
-                    <div class="h-px w-8 bg-brand-accent"></div>
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-20 reveal-up">
+                <div class="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold">Além da Clínica</span>
+                    <div class="h-px w-6 md:w-8 bg-brand-accent"></div>
                 </div>
-                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-text mb-6 leading-tight">
-                    Autoridade em <span class="italic text-brand-accent">Indústria e Tribunais.</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-text mb-4 md:mb-6 leading-tight">
+                    Autoridade em <br class="sm:hidden"><span class="italic text-brand-accent">Indústria e Tribunais.</span>
                 </h2>
-                <p class="text-sm text-brand-muted font-light leading-relaxed">
-                    Existem cenários onde o acolhimento cede espaço à ciência rigorosa e investigativa. Ofereço suporte técnico irrefutável para empresas de alto risco e atuação estratégica na esfera jurídica.
+                <p class="text-sm text-brand-muted font-light leading-relaxed px-2">
+                    Existem cenários onde o acolhimento cede espaço à ciência rigorosa. Ofereço suporte técnico irrefutável para empresas de alto risco e atuação estratégica na esfera jurídica.
                 </p>
             </div>
 
             <!-- Grid de Duas Colunas (Cards Gigantes) -->
-            <div class="grid lg:grid-cols-2 gap-8 md:gap-10">
+            <div class="grid lg:grid-cols-2 gap-6 md:gap-10">
                 
-                <!-- CARD 1: Avaliação Psicossocial (NRs) -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-12 reveal-up premium-card flex flex-col group">
-                    <div class="flex items-center justify-between mb-8">
+                <!-- CARD 1 -->
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 md:p-12 reveal-up premium-card flex flex-col group">
+                    <div class="flex items-start md:items-center justify-between mb-6 md:mb-8">
                         <div>
-                            <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-2">Testagem Psicológica</span>
-                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Avaliação Psicossocial - NRs</h3>
+                            <span class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-1 md:mb-2">Testagem Psicológica</span>
+                            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-text leading-tight">Avaliação Psicossocial - NRs</h3>
                         </div>
-                        <i class="fa-solid fa-helmet-safety text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500"></i>
+                        <i class="fa-solid fa-helmet-safety text-3xl md:text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500 ml-4"></i>
                     </div>
                     
-                    <p class="text-sm text-brand-muted leading-relaxed font-light mb-8">
-                        O meu papel é garantir a aptidão mental e comportamental dos seus colaboradores para atividades críticas, mitigando acidentes graves e blindando a sua empresa contra pesados passivos trabalhistas.
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light mb-6 md:mb-8">
+                        Garantia da aptidão mental e comportamental dos seus colaboradores para atividades críticas, mitigando acidentes graves e blindando a empresa.
                     </p>
                     
-                    <ul class="space-y-6 mb-12">
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                    <ul class="space-y-4 md:space-y-6 mb-8 md:mb-12">
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Foco Preciso (NRs)</strong>
-                                <p class="text-xs text-brand-muted font-light">Especialização em NR-01, NR-20 (Inflamáveis), NR-33 (Espaço Confinado), NR-35 (Altura) e NR-10 (Elétrica).</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Foco Preciso (NRs)</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Especialização em NR-01, NR-20 (Inflamáveis), NR-33 (Espaço Confinado), NR-35 (Altura) e NR-10 (Elétrica).</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Testagem SATEPSI</strong>
-                                <p class="text-xs text-brand-muted font-light">Uso restrito de instrumentos validados cientificamente para mapeamento cognitivo e controle de impulsos.</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Testagem SATEPSI</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Uso restrito de instrumentos validados cientificamente para mapeamento cognitivo e controle de impulsos.</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Agilidade Operacional</strong>
-                                <p class="text-xs text-brand-muted font-light">Emissão rápida, técnica e rigorosa de pareceres para composição do ASO (Atestado de Saúde Ocupacional).</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Agilidade Operacional</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Emissão rápida e técnica de pareceres para composição do ASO (Atestado de Saúde Ocupacional).</p>
                             </div>
                         </li>
                     </ul>
                     
-                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full text-[9px] md:text-[10px] mt-auto">
-                        Agendar Avaliação de Colaboradores
+                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full mt-auto">
+                        Agendar Avaliação
                     </a>
                 </div>
 
-                <!-- CARD 2: Psicologia Jurídica -->
-                <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-12 reveal-up delay-100 premium-card flex flex-col group">
-                    <div class="flex items-center justify-between mb-8">
+                <!-- CARD 2 -->
+                <div class="bg-[#0B1524] border border-[#16253B] p-6 md:p-12 reveal-up delay-100 premium-card flex flex-col group">
+                    <div class="flex items-start md:items-center justify-between mb-6 md:mb-8">
                         <div>
-                            <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-2">Estratégia e Rigor</span>
-                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Assistente Técnico e Perito</h3>
+                            <span class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-1 md:mb-2">Estratégia e Rigor</span>
+                            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-text leading-tight">Assistente Técnico e Perito</h3>
                         </div>
-                        <i class="fa-solid fa-scale-balanced text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500"></i>
+                        <i class="fa-solid fa-scale-balanced text-3xl md:text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500 ml-4"></i>
                     </div>
                     
-                    <p class="text-sm text-brand-muted leading-relaxed font-light mb-8">
-                        No contexto judicial, a psicologia não acolhe: ela investiga, analisa e prova. Atuo com estrita imparcialidade como Assistente Técnico, garantindo que os laudos adversos sejam criticados técnica e cientificamente.
+                    <p class="text-xs md:text-sm text-brand-muted leading-relaxed font-light mb-6 md:mb-8">
+                        No contexto judicial, a psicologia não acolhe: investiga, analisa e prova. Atuação com estrita imparcialidade, garantindo críticas técnicas a laudos adversos.
                     </p>
                     
-                    <ul class="space-y-6 mb-12">
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                    <ul class="space-y-4 md:space-y-6 mb-8 md:mb-12">
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Assistência a Advogados</strong>
-                                <p class="text-xs text-brand-muted font-light">Formulação estratégica de quesitos, acompanhamento em oitivas e elaboração de pareceres críticos.</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Assistência a Advogados</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Formulação estratégica de quesitos, acompanhamento em oitivas e elaboração de pareceres críticos.</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Varas do Trabalho e de Família</strong>
-                                <p class="text-xs text-brand-muted font-light">Investigação rigorosa de nexo causal em doenças ocupacionais e avaliações psicológicas de alta complexidade em litígios de guarda.</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Varas do Trabalho e de Família</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Investigação de nexo causal em doenças ocupacionais e avaliações de alta complexidade em litígios de guarda.</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-xs md:text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Atuação como Perito do Juízo</strong>
-                                <p class="text-xs text-brand-muted font-light">Nomeado pelo juiz para produzir a prova técnica pericial psicológica de forma estritamente imparcial e irrefutável.</p>
+                                <strong class="text-brand-text text-xs md:text-sm font-medium block mb-1">Atuação como Perito do Juízo</strong>
+                                <p class="text-[10px] md:text-xs text-brand-muted font-light">Nomeado para produzir a prova técnica pericial de forma estritamente imparcial e irrefutável.</p>
                             </div>
                         </li>
                     </ul>
                     
-                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full text-[9px] md:text-[10px] mt-auto">
+                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full mt-auto">
                         Consultoria para Escritórios
                     </a>
                 </div>
@@ -856,65 +847,61 @@
         </div>
     </section>
 
-    <!-- 9. FAQ (Dúvidas Frequentes) -->
-    <section id="faq" class="py-24 md:py-32 bg-brand-surface relative z-10 border-b border-brand-border">
-        <div class="max-w-4xl mx-auto px-6">
+    <!-- 9. FAQ -->
+    <section id="faq" class="py-20 md:py-32 bg-brand-surface relative z-10 border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
             
-            <div class="text-center mb-16 md:mb-20 reveal-up">
-                <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold mb-4 block">Esclarecimentos</span>
-                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-6">Perguntas Frequentes.</h2>
+            <div class="text-center mb-12 md:mb-20 reveal-up">
+                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-accent font-bold mb-3 md:mb-4 block">Esclarecimentos</span>
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-4 md:mb-6">Perguntas Frequentes.</h2>
             </div>
 
             <!-- Lista de Acordeões -->
-            <div class="space-y-4 reveal-up delay-100">
+            <div class="space-y-3 md:space-y-4 reveal-up delay-100">
                 
-                <!-- FAQ Item 1 -->
                 <div class="border border-[#16253B] bg-[#0B1524] rounded-sm overflow-hidden transition-colors hover:border-brand-accent/50">
-                    <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
-                        <h4 class="font-serif text-xl md:text-2xl text-brand-text pr-4">Como funciona a primeira sessão?</h4>
+                    <button class="faq-btn w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <h4 class="font-serif text-lg md:text-2xl text-brand-text pr-4">Como funciona a primeira sessão?</h4>
                         <i class="fa-solid fa-plus text-brand-accent transition-transform duration-300 transform"></i>
                     </button>
-                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-6 md:px-8">
-                        <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed pb-8">
+                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-5 md:px-8">
+                        <p class="text-xs md:text-base text-brand-muted font-light leading-relaxed pb-6 md:pb-8">
                             A primeira sessão é dedicada ao acolhimento e avaliação inicial. É o momento onde escutarei cuidadosamente a sua história, entenderei o que o(a) trouxe à terapia e explicarei como o meu método de direcionamento clínico pode ajudar no seu caso específico. Serve também para percebermos se há sintonia para iniciarmos o processo juntos.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
                 <div class="border border-[#16253B] bg-[#0B1524] rounded-sm overflow-hidden transition-colors hover:border-brand-accent/50">
-                    <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
-                        <h4 class="font-serif text-xl md:text-2xl text-brand-text pr-4">O atendimento é feito por plano de saúde?</h4>
+                    <button class="faq-btn w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <h4 class="font-serif text-lg md:text-2xl text-brand-text pr-4">O atendimento é feito por plano de saúde?</h4>
                         <i class="fa-solid fa-plus text-brand-accent transition-transform duration-300 transform"></i>
                     </button>
-                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-6 md:px-8">
-                        <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed pb-8">
+                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-5 md:px-8">
+                        <p class="text-xs md:text-base text-brand-muted font-light leading-relaxed pb-6 md:pb-8">
                             Os meus atendimentos são <strong>exclusivamente particulares</strong>. Esta é uma decisão técnica para garantir um padrão premium de cuidado, sessões com o tempo ideal e foco absoluto em si, sem as amarras burocráticas dos planos de saúde. Contudo, emito nota fiscal ou recibo que pode ser utilizado para solicitar reembolso junto do seu plano (consulte as regras da sua operadora).
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
                 <div class="border border-[#16253B] bg-[#0B1524] rounded-sm overflow-hidden transition-colors hover:border-brand-accent/50">
-                    <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
-                        <h4 class="font-serif text-xl md:text-2xl text-brand-text pr-4">Qual a duração e frequência das sessões?</h4>
+                    <button class="faq-btn w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <h4 class="font-serif text-lg md:text-2xl text-brand-text pr-4">Qual a duração e frequência das sessões?</h4>
                         <i class="fa-solid fa-plus text-brand-accent transition-transform duration-300 transform"></i>
                     </button>
-                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-6 md:px-8">
-                        <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed pb-8">
+                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-5 md:px-8">
+                        <p class="text-xs md:text-base text-brand-muted font-light leading-relaxed pb-6 md:pb-8">
                             As sessões têm a duração padrão de 50 minutos. Inicialmente, recomendo uma frequência semanal para que possamos estabelecer um vínculo terapêutico forte e identificar padrões com precisão. À medida que os sintomas estabilizam e atinge maior autonomia, a frequência pode ser espaçada gradualmente (quinzenal).
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
                 <div class="border border-[#16253B] bg-[#0B1524] rounded-sm overflow-hidden transition-colors hover:border-brand-accent/50">
-                    <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
-                        <h4 class="font-serif text-xl md:text-2xl text-brand-text pr-4">A terapia online é tão eficaz quanto a presencial?</h4>
+                    <button class="faq-btn w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <h4 class="font-serif text-lg md:text-2xl text-brand-text pr-4">A terapia online é tão eficaz quanto a presencial?</h4>
                         <i class="fa-solid fa-plus text-brand-accent transition-transform duration-300 transform"></i>
                     </button>
-                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-6 md:px-8">
-                        <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed pb-8">
+                    <div class="faq-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out px-5 md:px-8">
+                        <p class="text-xs md:text-base text-brand-muted font-light leading-relaxed pb-6 md:pb-8">
                             Totalmente. Inúmeros estudos científicos, validados pelo Conselho Federal de Psicologia, comprovam que a psicoterapia online apresenta exatamente a mesma eficácia clínica da modalidade presencial. A vantagem é o conforto e a flexibilidade de ser atendido no seu próprio ambiente. Exige apenas uma boa ligação à internet e um local com privacidade.
                         </p>
                     </div>
@@ -924,59 +911,58 @@
         </div>
     </section>
 
-    <!-- 10. CONTATO FINAL (CTA Imponente) -->
-    <section id="contato" class="py-32 md:py-48 bg-brand-base relative z-10 overflow-hidden">
-        <!-- Glow intenso central -->
-        <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] rounded-full bg-brand-accent opacity-[0.03] blur-[100px] pointer-events-none"></div>
+    <!-- 10. CONTATO FINAL -->
+    <section id="contato" class="py-28 md:py-48 bg-brand-base relative z-10 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[90vw] h-[90vw] md:w-[50vw] md:h-[50vw] rounded-full bg-brand-accent opacity-[0.03] blur-[80px] md:blur-[100px] pointer-events-none"></div>
         
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 relative z-10 text-center flex flex-col items-center">
             
-            <div class="reveal-scale flex items-center gap-4 mb-8">
-                <div class="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-brand-accent"></div>
-                <i class="fa-solid fa-gem text-brand-accent opacity-50 text-sm"></i>
-                <div class="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-brand-accent"></div>
+            <div class="reveal-scale flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+                <div class="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-brand-accent"></div>
+                <i class="fa-solid fa-gem text-brand-accent opacity-50 text-xs md:text-sm"></i>
+                <div class="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-brand-accent"></div>
             </div>
 
-            <h2 class="reveal-scale delay-100 font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-brand-text leading-[1.1] tracking-tight mb-8">
+            <h2 class="reveal-scale delay-100 font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-brand-text leading-[1.1] tracking-tight mb-6 md:mb-8 px-2">
                 Vamos dar o primeiro <br class="hidden sm:block"><span class="italic text-brand-accent">passo juntos?</span>
             </h2>
             
-            <p class="reveal-up delay-200 text-sm md:text-base text-brand-muted font-light leading-relaxed mb-12 max-w-2xl">
+            <p class="reveal-up delay-200 text-xs sm:text-sm md:text-base text-brand-muted font-light leading-relaxed mb-10 md:mb-12 max-w-2xl px-2">
                 A jornada de autoconhecimento e cura não precisa ser solitária. Se você está cansado de carregar o peso da ansiedade ou do desgaste emocional em silêncio, este é o momento de construir uma nova estrutura para a sua vida. Meu espaço clínico é seguro, ético e desenhado para oferecer o direcionamento que você procura.
             </p>
 
-            <div class="reveal-up delay-300 flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center items-center">
-                <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full sm:w-auto flex items-center gap-3">
+            <div class="reveal-up delay-300 w-full sm:w-auto px-4 sm:px-0">
+                <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury w-full sm:w-auto flex items-center justify-center gap-3">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     Entrar em Contato
                 </a>
             </div>
             
-            <p class="reveal-up delay-300 text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold mt-8">
+            <p class="reveal-up delay-300 text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold mt-6 md:mt-8">
                 Atendimento Rápido e Sigiloso
             </p>
         </div>
     </section>
 
-    <!-- 11. FOOTER (Rodapé Premium) -->
-    <footer class="bg-[#020305] border-t border-[#16253B] pt-20 pb-10 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- 11. FOOTER -->
+    <footer class="bg-[#020305] border-t border-[#16253B] pt-16 pb-8 md:pt-20 md:pb-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12 md:mb-16">
                 
-                <!-- Coluna 1: Branding -->
-                <div class="lg:col-span-1">
-                    <h3 class="font-serif text-3xl text-brand-text mb-2">Luiz Henrique</h3>
-                    <p class="text-[9px] uppercase tracking-[0.3em] text-brand-accent font-bold mb-6">Psicólogo Clínico</p>
-                    <p class="text-xs text-brand-muted font-light leading-relaxed pr-4">
+                <!-- Coluna 1 -->
+                <div class="lg:col-span-1 text-center md:text-left">
+                    <img src="img/logo.svg" alt="Logo Luiz Henrique" class="h-8 md:h-10 object-contain mb-4 mx-auto md:mx-0">
+                    <p class="text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-brand-accent font-bold mb-4 md:mb-6">Psicólogo Clínico</p>
+                    <p class="text-xs text-brand-muted font-light leading-relaxed md:pr-4">
                         Psicologia de alto padrão estruturada no rigor científico e num acolhimento clínico irrepreensível.
                     </p>
                 </div>
 
-                <!-- Coluna 2: Navegação -->
-                <div>
-                    <h4 class="text-brand-text font-bold text-[10px] uppercase tracking-widest mb-6">Navegação</h4>
-                    <ul class="space-y-4">
+                <!-- Coluna 2 -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-brand-text font-bold text-[9px] md:text-[10px] uppercase tracking-widest mb-4 md:mb-6">Navegação</h4>
+                    <ul class="space-y-3 md:space-y-4 inline-block md:block text-left">
                         <li><a href="#inicio" class="text-xs text-brand-muted hover:text-brand-accent transition-colors font-light">Início</a></li>
                         <li><a href="#atuacao" class="text-xs text-brand-muted hover:text-brand-accent transition-colors font-light">Onde Atuamos</a></li>
                         <li><a href="#sobre" class="text-xs text-brand-muted hover:text-brand-accent transition-colors font-light">O Especialista</a></li>
@@ -985,13 +971,13 @@
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Contatos e Endereço -->
-                <div>
-                    <h4 class="text-brand-text font-bold text-[10px] uppercase tracking-widest mb-6">Contato & Local</h4>
-                    <ul class="space-y-4">
+                <!-- Coluna 3 -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-brand-text font-bold text-[9px] md:text-[10px] uppercase tracking-widest mb-4 md:mb-6">Contato & Local</h4>
+                    <ul class="space-y-3 md:space-y-4 inline-block md:block text-left">
                         <li class="flex items-start gap-3 text-xs text-brand-muted font-light">
                             <i class="fa-solid fa-location-dot mt-0.5 text-brand-accent"></i>
-                            <span>Av. João da Escóssia, Empresarial<br>Mossoró - RN</span>
+                            <span>Av. João da Escóssia, Empresarial Premium<br>Mossoró - RN</span>
                         </li>
                         <li class="flex items-center gap-3 text-xs text-brand-muted font-light">
                             <i class="fa-brands fa-whatsapp text-brand-accent"></i>
@@ -1004,10 +990,10 @@
                     </ul>
                 </div>
 
-                <!-- Coluna 4: Legal & Redes -->
-                <div>
-                    <h4 class="text-brand-text font-bold text-[10px] uppercase tracking-widest mb-6">Redes Sociais</h4>
-                    <div class="flex gap-4 mb-8">
+                <!-- Coluna 4 -->
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <h4 class="text-brand-text font-bold text-[9px] md:text-[10px] uppercase tracking-widest mb-4 md:mb-6">Redes Sociais</h4>
+                    <div class="flex gap-4 mb-6 md:mb-8">
                         <a href="#" target="_blank" class="w-10 h-10 rounded-full border border-[#16253B] bg-[#0B1524] flex items-center justify-center text-brand-muted hover:text-brand-text hover:border-brand-accent transition-all">
                             <i class="fa-brands fa-instagram text-sm"></i>
                         </a>
@@ -1016,86 +1002,79 @@
                         </a>
                     </div>
                     
-                    <div class="p-4 border border-[#16253B] bg-[#0B1524]/50 rounded-sm">
-                        <p class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold text-center">CRP XX/XXXXX</p>
+                    <div class="p-3 md:p-4 border border-[#16253B] bg-[#0B1524]/50 rounded-sm w-full sm:w-auto">
+                        <p class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold text-center">CRP XX/XXXXX</p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Linha Final: Copyright -->
-            <div class="border-t border-[#16253B] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-[10px] text-brand-muted font-light uppercase tracking-widest">
+            <!-- Linha Final -->
+            <div class="border-t border-[#16253B] pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-[8px] md:text-[10px] text-brand-muted font-light uppercase tracking-widest">
                     &copy; 2026 Luiz Henrique Psicologia. Todos os direitos reservados.
                 </p>
-                <p class="text-[10px] text-brand-muted font-light uppercase tracking-widest flex items-center gap-2">
-                    Desenvolvido para <i class="fa-solid fa-gem text-brand-accent text-[8px]"></i> Performance
+                <p class="text-[8px] md:text-[10px] text-brand-muted font-light uppercase tracking-widest flex items-center justify-center gap-2">
+                    Desenvolvido para <i class="fa-solid fa-gem text-brand-accent text-[6px] md:text-[8px]"></i> Performance
                 </p>
             </div>
 
         </div>
     </footer>
 
-    <!-- ================= MODAIS DE INTERAÇÃO ================= -->
+    <!-- ================= MODAIS DE INTERAÇÃO (Protegidos p/ Mobile) ================= -->
     
-    <!-- Modal: Respiração 4-7-8 -->
-    <!-- Adicionado onclick para fechar ao clicar fora -->
+    <!-- Modal: Respiração -->
     <div id="modal-respira" onclick="closeModal('modal-respira')" class="fixed inset-0 z-[60] bg-brand-base/90 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 p-4">
-        <!-- Adicionado onclick="event.stopPropagation()" para não fechar se clicar dentro do card -->
-        <div onclick="event.stopPropagation()" class="bg-[#0B1524] border border-[#16253B] w-full max-w-md p-8 md:p-12 relative flex flex-col items-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm">
-            <button onclick="closeModal('modal-respira')" class="absolute top-5 right-6 text-brand-muted hover:text-brand-accent transition-colors text-2xl">
+        <div onclick="event.stopPropagation()" class="modal-content-scroll bg-[#0B1524] border border-[#16253B] w-full max-w-md p-6 sm:p-8 md:p-12 relative flex flex-col items-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-respira')" class="absolute top-4 right-4 md:top-5 md:right-6 text-brand-muted hover:text-brand-accent transition-colors text-xl md:text-2xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-text mb-2">Descompressão</h3>
-            <p class="text-xs text-brand-muted uppercase tracking-widest mb-6">Técnica 4-7-8</p>
+            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-text mb-2 mt-4 md:mt-0">Descompressão</h3>
+            <p class="text-[10px] md:text-xs text-brand-muted uppercase tracking-widest mb-6">Técnica 4-7-8</p>
             
-            <!-- Círculo Animado (Agora dentro de um container com tamanho fixo para não empurrar os textos ao crescer) -->
-            <div class="relative w-64 h-64 flex items-center justify-center mb-6 mx-auto">
-                <div id="breath-circle" class="absolute w-40 h-40 rounded-full border border-brand-accent/30 bg-brand-accent/5 transition-transform duration-1000 ease-in-out"></div>
-                <!-- Ponto central decorativo -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                <div id="breath-circle" class="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full border border-brand-accent/30 bg-brand-accent/5 transition-transform duration-1000 ease-in-out"></div>
                 <div class="absolute w-2 h-2 rounded-full bg-brand-accent opacity-50"></div>
-                <span id="breath-text" class="font-serif text-3xl text-brand-text relative z-10 italic drop-shadow-lg">3</span>
+                <span id="breath-text" class="font-serif text-2xl sm:text-3xl text-brand-text relative z-10 italic drop-shadow-lg">3</span>
             </div>
             
-            <p id="breath-instruction" class="text-sm md:text-base text-brand-muted font-light h-12 flex items-center justify-center">
+            <p id="breath-instruction" class="text-xs sm:text-sm md:text-base text-brand-muted font-light h-10 md:h-12 flex items-center justify-center px-4">
                 Prepare-se...
             </p>
         </div>
     </div>
 
-    <!-- Modal: Jogo da Velha (Passatempo) -->
-    <!-- Adicionado onclick para fechar ao clicar fora -->
+    <!-- Modal: Jogo -->
     <div id="modal-jogo" onclick="closeModal('modal-jogo')" class="fixed inset-0 z-[60] bg-brand-base/90 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 p-4">
-        <!-- Adicionado onclick="event.stopPropagation()" para não fechar se clicar dentro do card -->
-        <div onclick="event.stopPropagation()" class="bg-[#0B1524] border border-[#16253B] w-full max-w-md p-8 md:p-12 relative flex flex-col items-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm">
-            <button onclick="closeModal('modal-jogo')" class="absolute top-5 right-6 text-brand-muted hover:text-brand-accent transition-colors text-2xl">
+        <div onclick="event.stopPropagation()" class="modal-content-scroll bg-[#0B1524] border border-[#16253B] w-full max-w-md p-6 sm:p-8 md:p-12 relative flex flex-col items-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-jogo')" class="absolute top-4 right-4 md:top-5 md:right-6 text-brand-muted hover:text-brand-accent transition-colors text-xl md:text-2xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-text mb-2">Pausa Estratégica</h3>
-            <p class="text-xs text-brand-muted uppercase tracking-widest mb-8">Jogo da Velha vs. Sistema</p>
+            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-text mb-2 mt-4 md:mt-0">Pausa Estratégica</h3>
+            <p class="text-[10px] md:text-xs text-brand-muted uppercase tracking-widest mb-6 md:mb-8">Jogo da Velha vs. Sistema</p>
             
-            <!-- Tabuleiro -->
-            <div class="grid grid-cols-3 gap-2 w-full max-w-[240px] mb-6 mx-auto">
-                <div id="cell-0" onclick="makeMove(0)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-1" onclick="makeMove(1)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-2" onclick="makeMove(2)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-3" onclick="makeMove(3)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-4" onclick="makeMove(4)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-5" onclick="makeMove(5)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-6" onclick="makeMove(6)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-7" onclick="makeMove(7)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
-                <div id="cell-8" onclick="makeMove(8)" class="h-20 w-20 flex items-center justify-center text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+            <div class="grid grid-cols-3 gap-1 sm:gap-2 w-full max-w-[200px] sm:max-w-[240px] mb-6 mx-auto">
+                <div id="cell-0" onclick="makeMove(0)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-1" onclick="makeMove(1)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-2" onclick="makeMove(2)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-3" onclick="makeMove(3)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-4" onclick="makeMove(4)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-5" onclick="makeMove(5)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-6" onclick="makeMove(6)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-7" onclick="makeMove(7)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
+                <div id="cell-8" onclick="makeMove(8)" class="h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center text-3xl sm:text-4xl font-serif cursor-pointer border border-[#16253B] hover:bg-[#16253B]/50 transition-colors text-brand-text"></div>
             </div>
             
-            <p id="game-status" class="text-sm text-brand-accent font-light mb-8 italic">Você é o X. Sua vez!</p>
+            <p id="game-status" class="text-xs sm:text-sm text-brand-accent font-light mb-6 md:mb-8 italic">Você é o X. Sua vez!</p>
             
-            <button onclick="resetGame()" class="btn-luxury w-full text-[10px]">
+            <button onclick="resetGame()" class="btn-luxury w-full">
                 Reiniciar Jogo
             </button>
         </div>
     </div>
 
-    <!-- BOTÕES FLUTUANTES RESPONSIVOS -->
+    <!-- BOTÕES FLUTUANTES -->
     <a href="https://wa.me/5584999999999" target="_blank" id="whatsapp-btn" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#25D366] text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#20bd5a] transition-all duration-500 z-50 opacity-0 translate-y-4 pointer-events-none" aria-label="Agendar via WhatsApp">
         <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
     </a>
@@ -1104,11 +1083,8 @@
         <i class="fa-solid fa-arrow-up text-sm md:text-base"></i>
     </a>
 
-    <!-- Scripts do Site -->
     <script>
         // --- FUNÇÕES DA SESSÃO DE APOIO IMEDIATO ---
-        
-        // 1. Reflexões Dinâmicas
         const reflexoes = [
             "A ansiedade tenta convencer-lhe de que o perigo é agora. Mas o agora é o único lugar seguro.",
             "Não precisa resolver a sua vida inteira hoje. Resolva apenas o próximo passo.",
@@ -1120,25 +1096,19 @@
         
         function novaReflexao() {
             const p = document.getElementById('reflexao-texto');
-            p.style.opacity = 0; // Esconde suavemente
+            p.style.opacity = 0; 
             setTimeout(() => {
                 const r = reflexoes[Math.floor(Math.random() * reflexoes.length)];
                 p.innerText = `"${r}"`;
-                p.style.opacity = 1; // Mostra o novo texto
-            }, 500); // tempo que o texto fica escondido
+                p.style.opacity = 1; 
+            }, 500); 
         }
         
-        // Iniciar com uma reflexão aleatória
-        document.addEventListener('DOMContentLoaded', () => {
-            novaReflexao();
-        });
-
-        // 2. Modais Gerais e FAQ Toggle
         function openModal(id) {
             document.getElementById(id).classList.remove('opacity-0', 'pointer-events-none');
             if (id === 'modal-respira') {
-                stopBreathing(); // Limpa estado
-                initCountdown(); // Inicia automático ao abrir
+                stopBreathing(); 
+                initCountdown(); 
             }
             if (id === 'modal-jogo') resetGame();
         }
@@ -1148,36 +1118,29 @@
             if (id === 'modal-respira') stopBreathing();
         }
 
-        // Função para o FAQ (Acordeão)
         window.toggleFaq = function(btn) {
             const content = btn.nextElementSibling;
             const icon = btn.querySelector('i');
-            
-            // Verifica se este item já está aberto
             const isOpen = content.classList.contains('max-h-[500px]');
             
-            // Fecha todos os FAQs
             document.querySelectorAll('.faq-content').forEach(el => {
-                el.classList.remove('max-h-[500px]', 'opacity-100', 'pb-8');
+                el.classList.remove('max-h-[500px]', 'opacity-100', 'pb-8', 'pb-6');
                 el.classList.add('max-h-0', 'opacity-0');
             });
             document.querySelectorAll('.faq-btn i').forEach(el => {
                 el.classList.remove('rotate-45');
             });
 
-            // Se não estava aberto, abre o atual
             if (!isOpen) {
                 content.classList.remove('max-h-0', 'opacity-0');
-                content.classList.add('max-h-[500px]', 'opacity-100', 'pb-8');
+                // Adicionada responsividade p/ padding bottom
+                content.classList.add('max-h-[500px]', 'opacity-100', window.innerWidth < 768 ? 'pb-6' : 'pb-8');
                 icon.classList.add('rotate-45');
             }
         };
 
-        // 3. Lógica da Respiração 4-7-8 com Contagem
-        let breathInterval;
-        let breathTimeout1;
-        let breathTimeout2;
-        let countdownInterval;
+        // --- LÓGICA DA RESPIRAÇÃO ---
+        let breathInterval, breathTimeout1, breathTimeout2, countdownInterval;
 
         function initCountdown() {
             const text = document.getElementById('breath-text');
@@ -1208,7 +1171,6 @@
             const instruction = document.getElementById('breath-instruction');
             
             const cycle = () => {
-                // INSPIRE (4 Segundos)
                 text.innerText = "Inspire...";
                 if(instruction) instruction.innerText = "Puxe o ar pelo nariz (4s)";
                 circle.style.transition = "transform 4s cubic-bezier(0.4, 0, 0.2, 1), background-color 4s";
@@ -1217,13 +1179,11 @@
                 circle.style.borderColor = "#F2F5F8";
                 
                 breathTimeout1 = setTimeout(() => {
-                    // SEGURE (7 Segundos)
                     text.innerText = "Segure...";
                     if(instruction) instruction.innerText = "Mantenha o ar nos pulmões (7s)";
-                    circle.style.transition = "transform 7s linear"; // Mantém inflado
+                    circle.style.transition = "transform 7s linear";
                     
                     breathTimeout2 = setTimeout(() => {
-                        // EXPIRE (8 Segundos)
                         text.innerText = "Expire...";
                         if(instruction) instruction.innerText = "Solte o ar lentamente pela boca (8s)";
                         circle.style.transition = "transform 8s cubic-bezier(0.4, 0, 0.2, 1), background-color 8s";
@@ -1235,8 +1195,8 @@
                 }, 4000);
             };
             
-            cycle(); // Roda a 1ª vez
-            breathInterval = setInterval(cycle, 19000); // 4 + 7 + 8 = 19 segundos por ciclo
+            cycle();
+            breathInterval = setInterval(cycle, 19000);
         }
 
         function stopBreathing() {
@@ -1258,11 +1218,10 @@
             if(instruction) instruction.innerText = "Prepare-se...";
         }
 
-        // 4. Lógica do Jogo da Velha (Player vs Computador)
+        // --- LÓGICA DO JOGO ---
         let board = ['', '', '', '', '', '', '', '', ''];
         let gameActive = true;
-        let playerMark = 'X';
-        let botMark = 'O';
+        let playerMark = 'X', botMark = 'O';
 
         function updateBoard() {
             for(let i=0; i<9; i++) {
@@ -1276,9 +1235,7 @@
 
         function checkWinner() {
             const winConditions = [
-                [0,1,2],[3,4,5],[6,7,8], // linhas
-                [0,3,6],[1,4,7],[2,5,8], // colunas
-                [0,4,8],[2,4,6] // diagonais
+                [0,1,2],[3,4,5],[6,7,8], [0,3,6],[1,4,7],[2,5,8], [0,4,8],[2,4,6]
             ];
             for(let condition of winConditions) {
                 let [a,b,c] = condition;
@@ -1298,22 +1255,19 @@
         }
 
         function makeMove(index) {
-            // Se a célula estiver vazia e o jogo rolando
             if(board[index] === '' && gameActive) {
-                board[index] = playerMark; // Jogada do humano
+                board[index] = playerMark;
                 updateBoard();
                 if(!checkWinner()) {
                     document.getElementById('game-status').innerText = `Adversário a pensar...`;
-                    gameActive = false; // Bloqueia cliques do humano temporariamente
-                    
-                    // Jogada do Robô com pequeno atraso
+                    gameActive = false;
                     setTimeout(() => {
                         let emptyCells = board.map((val, idx) => val === '' ? idx : null).filter(val => val !== null);
                         if(emptyCells.length > 0) {
                             let randomIdx = emptyCells[Math.floor(Math.random() * emptyCells.length)];
                             board[randomIdx] = botMark;
                             updateBoard();
-                            gameActive = true; // Desbloqueia jogo
+                            gameActive = true;
                             if(!checkWinner()) {
                                 document.getElementById('game-status').innerText = `Sua vez!`;
                             }
@@ -1330,11 +1284,10 @@
             updateBoard();
         }
 
-
-        // --- ANIMAÇÕES E INTERSECTIONS (Existentes) ---
+        // --- INICIALIZAÇÃO GERAL ---
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Lógica do Navbar Inteligente e Menu Mobile ---
+            novaReflexao();
+
             const navbar = document.getElementById('navbar');
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -1343,35 +1296,28 @@
             
             let lastScrollY = window.scrollY;
             let isMenuOpen = false;
-            const scrollTolerance = 20; // <-- Adicionada a zona de tolerância
+            const scrollTolerance = 20; 
 
-            // Controle de Scroll do Navbar
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
-                const heroHeight = window.innerHeight * 0.8; // 80% da tela (fim do Hero)
+                const heroHeight = window.innerHeight * 0.8; 
 
-                // Se o menu mobile estiver aberto, não esconde o navbar
                 if (isMenuOpen) return;
 
                 if (currentScrollY < heroHeight) {
-                    // Esconde no Hero
                     navbar.classList.add('-translate-y-full');
                 } else {
-                    // Após o Hero - Apenas reage se a rolagem for maior que a tolerância (evita sensibilidade extrema)
                     if (Math.abs(currentScrollY - lastScrollY) > scrollTolerance) {
                         if (currentScrollY > lastScrollY) {
-                            // Fazendo scroll para baixo -> Esconde
                             navbar.classList.add('-translate-y-full');
                         } else {
-                            // Fazendo scroll para cima -> Mostra
                             navbar.classList.remove('-translate-y-full');
                         }
-                        lastScrollY = currentScrollY; // Atualiza apenas quando passa da tolerância
+                        lastScrollY = currentScrollY;
                     }
                 }
             });
 
-            // Toggle do Menu Mobile
             function toggleMenu() {
                 isMenuOpen = !isMenuOpen;
                 if (isMenuOpen) {
@@ -1379,7 +1325,7 @@
                     mobileMenu.classList.add('max-h-[500px]');
                     mobileIcon.classList.remove('fa-bars');
                     mobileIcon.classList.add('fa-xmark');
-                    navbar.classList.remove('-translate-y-full'); // Garante que fica visível
+                    navbar.classList.remove('-translate-y-full');
                 } else {
                     mobileMenu.classList.add('max-h-0');
                     mobileMenu.classList.remove('max-h-[500px]');
@@ -1390,22 +1336,18 @@
 
             mobileBtn.addEventListener('click', toggleMenu);
 
-            // Fechar menu ao clicar em um link
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (isMenuOpen) toggleMenu();
                 });
             });
 
-            // --- Lógica do Ciclo de Imagens (Secção Espaço) ---
+            // Lógica do Ciclo de Imagens
             const img1 = document.getElementById('img-espaco-1');
             const img2 = document.getElementById('img-espaco-2');
-            
             if (img1 && img2) {
                 let activeImg = 1;
-                // Ativa a primeira imediatamente
                 img1.classList.add('image-active');
-                
                 setInterval(() => {
                     if (activeImg === 1) {
                         img1.classList.remove('image-active');
@@ -1416,15 +1358,14 @@
                         img1.classList.add('image-active');
                         activeImg = 1;
                     }
-                }, 4000); // Troca a cada 4 segundos
+                }, 4000);
             }
 
-            // Mouse Glow
+            // Mouse Glow & Scroll Reveal
             const mouseGlow = document.getElementById('mouse-glow');
             const heroImg = document.getElementById('hero-img');
             const whatsappBtn = document.getElementById('whatsapp-btn');
             const backToTopBtn = document.getElementById('back-to-top');
-            
             let isTicking = false;
 
             if (window.matchMedia("(pointer: fine)").matches) {
@@ -1465,6 +1406,7 @@
             }, observerOptions);
             document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
+            // Auto-highlight das listas
             const highlightContainers = document.querySelectorAll('.highlight-container');
             highlightContainers.forEach(container => {
                 const items = container.querySelectorAll('.highlight-item');
