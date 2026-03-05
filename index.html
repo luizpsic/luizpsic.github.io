@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luiz Henrique | Psicologia Clínica Premium</title>
+    <title>Luiz Henrique | Psicologia Clínica</title>
     
     <meta name="description" content="Psicólogo Luiz Henrique em Mossoró, RN. Terapia online e presencial para ansiedade, depressão, relacionamentos e autoconhecimento. Agende sua avaliação.">
     <meta name="keywords" content="psicólogo, psicologia, terapia, Mossoró, RN, online, presencial, ansiedade, depressão, Luiz Henrique">
@@ -239,10 +239,10 @@
     <!-- 1. HERO SECTION -->
     <header id="inicio" class="relative min-h-[100svh] py-32 flex flex-col items-center justify-center overflow-hidden perspective-1000">
         <div class="absolute inset-0 z-0 overflow-hidden bg-brand-base">
-            <!-- FOTO DE INÍCIO COM ZOOM AUMENTADO E BRILHO AJUSTADO -->
+            <!-- FOTO DE INÍCIO COM ZOOM AUMENTADO E BRILHO AJUSTADO (object-top adicionado) -->
             <img id="hero-img" src="https://i.imgur.com/aWVYIxH.jpeg" 
                  alt="Luiz Henrique - Imagem de Fundo" 
-                 class="w-full h-full object-cover object-center opacity-60 image-bw animate-zoom transition-transform duration-100 ease-out mix-blend-luminosity">
+                 class="w-full h-full object-cover object-top opacity-60 image-bw animate-zoom transition-transform duration-100 ease-out mix-blend-luminosity">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
@@ -653,26 +653,34 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             
-            <!-- Cabeçalho Alinhado à Esquerda com CTA -->
-            <div class="max-w-3xl mb-16 md:mb-20 reveal-up">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-px w-8 bg-brand-accent"></div>
-                    <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Espaço Físico</span>
+            <!-- Cabeçalho Layout Lado a Lado (Melhor Agrupamento) -->
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-start mb-16 md:mb-20 reveal-up">
+                
+                <!-- Lado Esquerdo: Títulos -->
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px w-8 bg-brand-accent"></div>
+                        <span class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">O Espaço Físico</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text leading-tight">
+                        O seu espaço de <br class="hidden sm:block">
+                        <span class="italic text-brand-accent">refúgio e cura.</span>
+                    </h2>
                 </div>
-                
-                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-brand-text mb-6 leading-tight">
-                    O seu espaço de <br class="hidden sm:block">
-                    <span class="italic text-brand-accent">refúgio e cura.</span>
-                </h2>
-                
-                <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed mb-10">
-                    Muito além do "divã" clássico. O consultório foi arquitetado para ser um ambiente seguro e de alto padrão. Um espaço onde o conforto, o isolamento acústico e a tranquilidade permitem que você se desligue totalmente das exigências do mundo exterior.
-                </p>
 
-                <!-- CTA para o Presencial (Reposicionado e melhorado) -->
-                <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury text-[10px] w-full sm:w-auto mt-2">
-                    Agendar Visita Presencial
-                </a>
+                <!-- Lado Direito: Texto Explicativo e CTA -->
+                <div class="flex flex-col items-start lg:pt-12">
+                    <p class="text-sm md:text-base text-brand-muted font-light leading-relaxed mb-8">
+                        O meu consultório foi pensado em cada detalhe para proporcionar uma experiência de acolhimento ímpar. Um ambiente discreto, com isolamento acústico absoluto e conforto premium, garantindo a tranquilidade e a segurança necessárias para que possamos trabalhar as suas questões mais profundas com total privacidade.
+                    </p>
+
+                    <!-- CTA para o Presencial -->
+                    <a href="https://wa.me/5584999999999" target="_blank" class="btn-luxury text-[10px] w-full sm:w-auto">
+                        Agendar Visita Presencial
+                    </a>
+                </div>
+
             </div>
 
             <!-- Galeria de Imagens (Com Ciclo Automático) -->
@@ -762,8 +770,8 @@
                 <div class="bg-[#0B1524] border border-[#16253B] p-8 md:p-12 reveal-up premium-card flex flex-col group">
                     <div class="flex items-center justify-between mb-8">
                         <div>
-                            <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-2">Segurança do Trabalho</span>
-                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Avaliação Psicossocial</h3>
+                            <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-2">Testagem Psicológica</span>
+                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Avaliação Psicossocial - NRs</h3>
                         </div>
                         <i class="fa-solid fa-helmet-safety text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500"></i>
                     </div>
@@ -777,7 +785,7 @@
                             <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
                             <div>
                                 <strong class="text-brand-text text-sm font-medium block mb-1">Foco Preciso (NRs)</strong>
-                                <p class="text-xs text-brand-muted font-light">Especialização em NR-20 (Inflamáveis), NR-33 (Espaço Confinado), NR-35 (Altura) e NR-10 (Elétrica).</p>
+                                <p class="text-xs text-brand-muted font-light">Especialização em NR-01, NR-20 (Inflamáveis), NR-33 (Espaço Confinado), NR-35 (Altura) e NR-10 (Elétrica).</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
@@ -806,7 +814,7 @@
                     <div class="flex items-center justify-between mb-8">
                         <div>
                             <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-bold block mb-2">Estratégia e Rigor</span>
-                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Assistência Pericial</h3>
+                            <h3 class="font-serif text-3xl md:text-4xl text-brand-text">Assistente Técnico e Perito</h3>
                         </div>
                         <i class="fa-solid fa-scale-balanced text-4xl text-[#16253B] group-hover:text-brand-accent transition-colors duration-500"></i>
                     </div>
@@ -826,15 +834,15 @@
                         <li class="flex items-start gap-4">
                             <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Varas do Trabalho</strong>
-                                <p class="text-xs text-brand-muted font-light">Investigação técnica rigorosa de nexo causal em casos de adoecimento laboral (Burnout, Assédio Moral).</p>
+                                <strong class="text-brand-text text-sm font-medium block mb-1">Varas do Trabalho e de Família</strong>
+                                <p class="text-xs text-brand-muted font-light">Investigação rigorosa de nexo causal em doenças ocupacionais e avaliações psicológicas de alta complexidade em litígios de guarda.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
                             <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
                             <div>
-                                <strong class="text-brand-text text-sm font-medium block mb-1">Varas de Família</strong>
-                                <p class="text-xs text-brand-muted font-light">Avaliações psicológicas de alta complexidade em litígios de guarda e suspeitas de alienação parental.</p>
+                                <strong class="text-brand-text text-sm font-medium block mb-1">Atuação como Perito do Juízo</strong>
+                                <p class="text-xs text-brand-muted font-light">Nomeado pelo juiz para produzir a prova técnica pericial psicológica de forma estritamente imparcial e irrefutável.</p>
                             </div>
                         </li>
                     </ul>
@@ -983,7 +991,7 @@
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3 text-xs text-brand-muted font-light">
                             <i class="fa-solid fa-location-dot mt-0.5 text-brand-accent"></i>
-                            <span>Av. João da Escóssia, Empresarial Premium<br>Mossoró - RN</span>
+                            <span>Av. João da Escóssia, Empresarial<br>Mossoró - RN</span>
                         </li>
                         <li class="flex items-center gap-3 text-xs text-brand-muted font-light">
                             <i class="fa-brands fa-whatsapp text-brand-accent"></i>
